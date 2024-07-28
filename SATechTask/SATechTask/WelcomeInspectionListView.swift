@@ -15,10 +15,10 @@ struct WelcomeInspectionListView: View {
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
-                        SectionHeaderView(title: "DRUGS")
+                        SectionHeaderView(title: Constants.Questions.drugsSection)
                         
-                        QuestionView(question: "Is the drugs trolley locked?", options: ["Yes", "No", "N/A"])
-                        QuestionView(question: "How often is the floor cleaned?", options: [Constants.Questions.Options.everyday, Constants.Questions.Options.everyTwoDays, Constants.Questions.Options.everyWeek])
+                        QuestionView(question: Constants.Questions.isDrugsTrolleyLocked, options: [Constants.Questions.Options.yes, Constants.Questions.Options.no, Constants.Questions.Options.na])
+                        QuestionView(question:Constants.Questions.howOftenIsFloorCleaned, options: [Constants.Questions.Options.everyday, Constants.Questions.Options.everyTwoDays, Constants.Questions.Options.everyWeek])
                         
                         SectionHeaderView(title: Constants.Questions.overallImpressionsSection)
                         
