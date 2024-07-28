@@ -1,28 +1,42 @@
 //
-//  InspectionListView.swift
+//  File.swift
 //  SATechTask
 //
-//  Created by Swapnil on 28/07/24.
+//  Created by Swapnil on 29/07/24.
 //
 
+import Foundation
 import SwiftUI
-
 struct InspectionListView: View {
+    @StateObject private var viewModel = InspectionListViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView()
                 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
-                        SectionHeaderView(title: "DRUGS")
+                        SectionHeaderView(title: Constants.Questions.drugsSection)
                         
-                        QuestionView(question: "Is the drugs trolley locked?", options: ["Yes", "No", "N/A"])
-                        QuestionView(question: "How often is the floor cleaned?", options: [Constants.Questions.Options.everyday, Constants.Questions.Options.everyTwoDays, Constants.Questions.Options.everyWeek])
+                        QuestionView(question: Constants.Questions.isDrugsTrolleyLocked, options: [
+                            Constants.Questions.Options.yes,
+                            Constants.Questions.Options.no,
+                            Constants.Questions.Options.na
+                        ])
+                        QuestionView(question: Constants.Questions.howOftenIsFloorCleaned, options: [
+                            Constants.Questions.Options.everyday,
+                            Constants.Questions.Options.everyTwoDays,
+                            Constants.Questions.Options.everyWeek
+                        ])
                         
                         SectionHeaderView(title: Constants.Questions.overallImpressionsSection)
                         
-                        QuestionView(question: "How many staff members are present in the ward?", options: ["1-2", "3-6", "6+", "N/A"])
+                        QuestionView(question: Constants.Questions.howManyStaffPresent, options: [
+                            Constants.Questions.Options.oneToTwo,
+                            Constants.Questions.Options.threeToSix,
+                            Constants.Questions.Options.sixPlus,
+                            Constants.Questions.Options.na
+                        ])
                     }
                     .padding()
                 }
@@ -34,20 +48,16 @@ struct InspectionListView: View {
     }
 }
 
-#Preview {
-    InspectionListView()
+struct InspectionListView_Previews: PreviewProvider {
+    static var previews: some View {
+        InspectionListView()
+    }
 }
 
-class Inspection: Identifiable, Codable, ObservableObject {
-    let id: Int
-    let area: Area
-    let inspectionType: InspectionType
-    let survey: Survey
+
+class InspectionListViewModel: ObservableObject {
+    @Published var draftInspections: [Inspection] = []
+    @Published var completedInspections: [Inspection] = []
     
-    init(id: Int, area: Area, inspectionType: InspectionType, survey: Survey) {
-           self.id = id
-           self.area = area
-           self.inspectionType = inspectionType
-           self.survey = survey
-       }
+    // You can add methods to fetch or update inspections here
 }

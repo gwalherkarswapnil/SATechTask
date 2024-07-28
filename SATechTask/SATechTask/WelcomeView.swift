@@ -25,11 +25,11 @@ struct WelcomeView: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding()
             
-            if selectedTab == 0 {
-                InspectionListView()
-            } else {
-                InspectionListView()
-            }
+//            if selectedTab == 0 {
+//                InspectionListView()
+//            } else {
+//                InspectionListView()
+//            }
         }
         .alert(isPresented: .constant(viewModel.errorMessage != nil)) {
             Alert(title: Text("Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))

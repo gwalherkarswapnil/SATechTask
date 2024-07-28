@@ -52,7 +52,7 @@ struct LoginView: View {
                         .foregroundColor(.blue)
                 }
                 
-                NavigationLink(destination: InspectionListView(), isActive: $viewModel.isAuthenticated) {
+                NavigationLink(destination: WelcomeInspectionListView(), isActive: $viewModel.isAuthenticated) {
                     EmptyView()
                 }
             }

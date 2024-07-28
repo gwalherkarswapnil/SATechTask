@@ -30,6 +30,9 @@ struct Constants {
             static let everyday = "Everyday"
             static let everyTwoDays = "Every two days"
             static let everyWeek = "Every week"
+            static let oneToTwo = "1-2"
+            static let threeToSix = "3-6"
+            static let sixPlus = "6+"
         }
     }
 }
