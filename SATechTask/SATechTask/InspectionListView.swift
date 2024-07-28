@@ -44,6 +44,7 @@ struct InspectionListView: View {
                 SubmitButtonView()
             }
             .navigationBarHidden(true)
+            .navigationBarBackButtonHidden()
         }
     }
 }

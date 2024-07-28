@@ -31,6 +31,10 @@ struct LoginView: View {
                         .onAppear {
                             animateLogo = true
                         }
+                        .onHover { succes in
+                            
+                        }
+                    
 
                     Text(isLoginMode ? Constants.Login.loginButton : Constants.Login.signUpButton)
                         .font(.largeTitle)
@@ -41,13 +45,13 @@ struct LoginView: View {
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(5)
-                        .animation(.default)
+                        .animation(.bouncy)
 
                     SecureField(Constants.Login.passwordPlaceholder, text: $viewModel.password)
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(5)
-                        .animation(.default)
+                        .animation(.bouncy)
 
                     Button(action: {
                         if isLoginMode {
@@ -71,7 +75,7 @@ struct LoginView: View {
                             .cornerRadius(5)
                     }
 
-                    NavigationLink(destination: WelcomeView(), isActive: $showWelcomeView) {
+                    NavigationLink(destination: WelcomeInspectionListView(), isActive: $showWelcomeView) {
                         EmptyView()
                     }
                 }
@@ -94,6 +98,8 @@ struct LoginView: View {
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text("Error"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden()
         }
     }
 }
