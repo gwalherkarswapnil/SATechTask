@@ -10,56 +10,63 @@ import SwiftUI
 import SwiftUI
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel(authService: AuthNetworkService())
-    
     @State private var isLoginMode = true
-
-    var body: some View {
-        NavigationView {
-            VStack {
-                Text(isLoginMode ? "Login" : "Sign Up")
-                    .font(.largeTitle)
-                    .padding()
-                
-                TextField("Email", text: $viewModel.email)
-                    .autocapitalization(.none)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(5)
-                
-                SecureField("Password", text: $viewModel.password)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(5)
-                
-                Button(action: {
-                    if isLoginMode {
-                        viewModel.loginUser()
-                    } else {
-                        viewModel.registerUser()
-                    }
-                }) {
-                    Text(isLoginMode ? "Login" : "Sign Up")
-                        .foregroundColor(.white)
+    @State private var showWelcomeView = false
+    
+        var body: some View {
+            NavigationView {
+                VStack {
+                    Text(isLoginMode ? Constants.Login.loginButton : Constants.Login.signUpButton)
+                        .font(.largeTitle)
                         .padding()
-                        .background(Color.blue)
+                    
+                    TextField(Constants.Login.emailPlaceholder, text: $viewModel.email)
+                        .autocapitalization(.none)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
                         .cornerRadius(5)
+                    
+                    SecureField(Constants.Login.passwordPlaceholder, text: $viewModel.password)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(5)
+                    
+                    Button(action: {
+                        if isLoginMode {
+                            viewModel.loginUser { success in
+                                if success {
+                                    showWelcomeView = true
+                                } else {
+                                    // Handle login failure (show an alert, etc.)
+                                }
+                            }
+                        } else {
+                            viewModel.registerUser()
+                        }
+                    }) {
+                        Text(isLoginMode ? Constants.Login.loginButton : Constants.Login.signUpButton)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(5)
+                    }
+
+                    NavigationLink(destination: WelcomeView(), isActive: $showWelcomeView) {
+                        EmptyView()
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        isLoginMode.toggle()
+                    }) {
+                        Text(isLoginMode ? Constants.Login.signUpButton : Constants.Login.loginButton)
+                    }
+                    .padding()
                 }
-                
-                Button(action: {
-                    isLoginMode.toggle()
-                }) {
-                    Text(isLoginMode ? "Don't have an account? Sign Up" : "Already have an account? Login")
-                        .foregroundColor(.blue)
-                }
-                
-                NavigationLink(destination: WelcomeInspectionListView(), isActive: $viewModel.isAuthenticated) {
-                    EmptyView()
-                }
-            }
-            .padding()
-            .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Error"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+                .padding()
+                .navigationBarHidden(true)
             }
         }
     }
-}
+

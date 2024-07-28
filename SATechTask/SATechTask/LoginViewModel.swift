@@ -19,19 +19,23 @@ class LoginViewModel: ObservableObject {
         self.authService = authService
     }
     
-    func loginUser() {
+    func loginUser(completion: @escaping (Bool) -> Void) {
         authService.login(email: email, password: password) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:
                     self?.isAuthenticated = true
+                    completion(true)
                 case .failure(let error):
                     self?.alertMessage = error.localizedDescription
                     self?.showAlert = true
+                    completion(false)
                 }
             }
         }
     }
+
+    
     
     func registerUser() {
         authService.register(email: email, password: password) { [weak self] result in

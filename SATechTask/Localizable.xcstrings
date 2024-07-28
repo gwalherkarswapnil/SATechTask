@@ -1,22 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Already have an account? Login" : {
-
-    },
     "Area: Emergency ICU" : {
 
     },
     "Completed" : {
 
     },
-    "Don't have an account? Sign Up" : {
-
-    },
     "Drafts" : {
-
-    },
-    "Email" : {
 
     },
     "Error" : {
@@ -39,19 +30,10 @@
         }
       }
     },
-    "Login" : {
-
-    },
     "OK" : {
 
     },
-    "Password" : {
-
-    },
     "Select Tab" : {
-
-    },
-    "Sign Up" : {
 
     },
     "Submit" : {

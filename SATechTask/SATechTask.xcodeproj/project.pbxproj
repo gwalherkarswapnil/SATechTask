@@ -24,7 +24,18 @@
 		559334F82C56D95900D1AEB9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 559334F72C56D95900D1AEB9 /* Localizable.xcstrings */; };
 		559334FA2C56DA4800D1AEB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559334F92C56DA4800D1AEB9 /* Constants.swift */; };
 		559334FC2C56E17D00D1AEB9 /* InspectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559334FB2C56E17D00D1AEB9 /* InspectionListView.swift */; };
+		559335042C56E74700D1AEB9 /* SATechTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559335032C56E74700D1AEB9 /* SATechTaskTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		559335052C56E74700D1AEB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 559334CA2C561A9D00D1AEB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 559334D12C561A9D00D1AEB9;
+			remoteInfo = SATechTask;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		559334D22C561A9D00D1AEB9 /* SATechTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SATechTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,10 +56,19 @@
 		559334F72C56D95900D1AEB9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		559334F92C56DA4800D1AEB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		559334FB2C56E17D00D1AEB9 /* InspectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionListView.swift; sourceTree = "<group>"; };
+		559335012C56E74700D1AEB9 /* SATechTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SATechTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		559335032C56E74700D1AEB9 /* SATechTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATechTaskTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		559334CF2C561A9D00D1AEB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559334FE2C56E74700D1AEB9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,6 +83,7 @@
 			children = (
 				559334F72C56D95900D1AEB9 /* Localizable.xcstrings */,
 				559334D42C561A9D00D1AEB9 /* SATechTask */,
+				559335022C56E74700D1AEB9 /* SATechTaskTests */,
 				559334D32C561A9D00D1AEB9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				559334D22C561A9D00D1AEB9 /* SATechTask.app */,
+				559335012C56E74700D1AEB9 /* SATechTaskTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +128,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		559335022C56E74700D1AEB9 /* SATechTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				559335032C56E74700D1AEB9 /* SATechTaskTests.swift */,
+			);
+			path = SATechTaskTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,6 +156,24 @@
 			productReference = 559334D22C561A9D00D1AEB9 /* SATechTask.app */;
 			productType = "com.apple.product-type.application";
 		};
+		559335002C56E74700D1AEB9 /* SATechTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 559335072C56E74700D1AEB9 /* Build configuration list for PBXNativeTarget "SATechTaskTests" */;
+			buildPhases = (
+				559334FD2C56E74700D1AEB9 /* Sources */,
+				559334FE2C56E74700D1AEB9 /* Frameworks */,
+				559334FF2C56E74700D1AEB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				559335062C56E74700D1AEB9 /* PBXTargetDependency */,
+			);
+			name = SATechTaskTests;
+			productName = SATechTaskTests;
+			productReference = 559335012C56E74700D1AEB9 /* SATechTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -138,6 +186,10 @@
 				TargetAttributes = {
 					559334D12C561A9D00D1AEB9 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					559335002C56E74700D1AEB9 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 559334D12C561A9D00D1AEB9;
 					};
 				};
 			};
@@ -155,6 +207,7 @@
 			projectRoot = "";
 			targets = (
 				559334D12C561A9D00D1AEB9 /* SATechTask */,
+				559335002C56E74700D1AEB9 /* SATechTaskTests */,
 			);
 		};
 /* End PBXProject section */
@@ -167,6 +220,13 @@
 				559334DD2C561A9F00D1AEB9 /* Preview Assets.xcassets in Resources */,
 				559334DA2C561A9F00D1AEB9 /* Assets.xcassets in Resources */,
 				559334F82C56D95900D1AEB9 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559334FF2C56E74700D1AEB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +254,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		559334FD2C56E74700D1AEB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559335042C56E74700D1AEB9 /* SATechTaskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		559335062C56E74700D1AEB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 559334D12C561A9D00D1AEB9 /* SATechTask */;
+			targetProxy = 559335052C56E74700D1AEB9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		559334DE2C561A9F00D1AEB9 /* Debug */ = {
@@ -372,6 +448,40 @@
 			};
 			name = Release;
 		};
+		559335082C56E74700D1AEB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = swapnil.SATechTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SATechTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SATechTask";
+			};
+			name = Debug;
+		};
+		559335092C56E74700D1AEB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = swapnil.SATechTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SATechTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SATechTask";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -389,6 +499,15 @@
 			buildConfigurations = (
 				559334E12C561A9F00D1AEB9 /* Debug */,
 				559334E22C561A9F00D1AEB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		559335072C56E74700D1AEB9 /* Build configuration list for PBXNativeTarget "SATechTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				559335082C56E74700D1AEB9 /* Debug */,
+				559335092C56E74700D1AEB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
