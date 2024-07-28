@@ -19,18 +19,18 @@ struct LoginView: View {
                     Text(isLoginMode ? Constants.Login.loginButton : Constants.Login.signUpButton)
                         .font(.largeTitle)
                         .padding()
-                    
+                    Spacer()
                     TextField(Constants.Login.emailPlaceholder, text: $viewModel.email)
                         .autocapitalization(.none)
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(5)
-                    
+
                     SecureField(Constants.Login.passwordPlaceholder, text: $viewModel.password)
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(5)
-                    
+                    Spacer()
                     Button(action: {
                         if isLoginMode {
                             viewModel.loginUser { success in
