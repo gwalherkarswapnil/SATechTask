@@ -26,9 +26,9 @@ struct WelcomeView: View {
             .padding()
             
             if selectedTab == 0 {
-                InspectionListView(inspections: viewModel.draftInspections)
+                InspectionListView()
             } else {
-                InspectionListView(inspections: viewModel.completedInspections)
+                InspectionListView()
             }
         }
         .alert(isPresented: .constant(viewModel.errorMessage != nil)) {

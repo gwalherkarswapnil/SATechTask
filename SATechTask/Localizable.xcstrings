@@ -1,0 +1,65 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Already have an account? Login" : {
+
+    },
+    "Area: Emergency ICU" : {
+
+    },
+    "Completed" : {
+
+    },
+    "Don't have an account? Sign Up" : {
+
+    },
+    "Drafts" : {
+
+    },
+    "Email" : {
+
+    },
+    "Error" : {
+
+    },
+    "Inspection Details" : {
+
+    },
+    "Inspection Type: Clinical" : {
+
+    },
+    "Inspection_Details" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspection Details"
+          }
+        }
+      }
+    },
+    "Login" : {
+
+    },
+    "OK" : {
+
+    },
+    "Password" : {
+
+    },
+    "Select Tab" : {
+
+    },
+    "Sign Up" : {
+
+    },
+    "Submit" : {
+
+    },
+    "Welcome" : {
+
+    }
+  },
+  "version" : "1.0"
+}

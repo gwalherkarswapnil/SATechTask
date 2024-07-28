@@ -21,7 +21,7 @@ class InspectionViewModel: ObservableObject {
     }
     
     func fetchDraftInspections() {
-        inspectionService.fetchDraftInspections { [weak self] result in
+        inspectionService.fetchInspections { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let inspections):
@@ -31,10 +31,11 @@ class InspectionViewModel: ObservableObject {
                 }
             }
         }
+        
     }
     
     func fetchCompletedInspections() {
-        inspectionService.fetchCompletedInspections { [weak self] result in
+        inspectionService.fetchInspections { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let inspections):

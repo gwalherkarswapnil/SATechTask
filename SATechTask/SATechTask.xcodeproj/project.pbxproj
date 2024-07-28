@@ -21,6 +21,8 @@
 		559334F22C56B7CC00D1AEB9 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559334F12C56B7CC00D1AEB9 /* WelcomeView.swift */; };
 		559334F42C56B80000D1AEB9 /* InpectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559334F32C56B80000D1AEB9 /* InpectionViewModel.swift */; };
 		559334F62C56C7B300D1AEB9 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559334F52C56C7B300D1AEB9 /* Response.swift */; };
+		559334F82C56D95900D1AEB9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 559334F72C56D95900D1AEB9 /* Localizable.xcstrings */; };
+		559334FA2C56DA4800D1AEB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559334F92C56DA4800D1AEB9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		559334F12C56B7CC00D1AEB9 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		559334F32C56B80000D1AEB9 /* InpectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpectionViewModel.swift; sourceTree = "<group>"; };
 		559334F52C56C7B300D1AEB9 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		559334F72C56D95900D1AEB9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		559334F92C56DA4800D1AEB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		559334C92C561A9D00D1AEB9 = {
 			isa = PBXGroup;
 			children = (
+				559334F72C56D95900D1AEB9 /* Localizable.xcstrings */,
 				559334D42C561A9D00D1AEB9 /* SATechTask */,
 				559334D32C561A9D00D1AEB9 /* Products */,
 			);
@@ -72,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				559334D52C561A9D00D1AEB9 /* SATechTaskApp.swift */,
+				559334F92C56DA4800D1AEB9 /* Constants.swift */,
 				559334D72C561A9D00D1AEB9 /* AppContentView.swift */,
 				559334E52C561D7500D1AEB9 /* HeaderView.swift */,
 				559334EB2C5692CF00D1AEB9 /* LoginView.swift */,
@@ -157,6 +163,7 @@
 			files = (
 				559334DD2C561A9F00D1AEB9 /* Preview Assets.xcassets in Resources */,
 				559334DA2C561A9F00D1AEB9 /* Assets.xcassets in Resources */,
+				559334F82C56D95900D1AEB9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +181,7 @@
 				559334F62C56C7B300D1AEB9 /* Response.swift in Sources */,
 				559334D82C561A9D00D1AEB9 /* AppContentView.swift in Sources */,
 				559334F22C56B7CC00D1AEB9 /* WelcomeView.swift in Sources */,
+				559334FA2C56DA4800D1AEB9 /* Constants.swift in Sources */,
 				559334F42C56B80000D1AEB9 /* InpectionViewModel.swift in Sources */,
 				559334D62C561A9D00D1AEB9 /* SATechTaskApp.swift in Sources */,
 				559334EE2C5692F900D1AEB9 /* InspectionListView.swift in Sources */,

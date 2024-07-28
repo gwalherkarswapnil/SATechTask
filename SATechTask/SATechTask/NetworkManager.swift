@@ -15,13 +15,13 @@ protocol AuthService {
 protocol InspectionService {
     func fetchInspections(completion: @escaping (Result<[Inspection], Error>) -> Void)
     func submitInspection(inspection: Inspection, completion: @escaping (Result<Bool, Error>) -> Void)
-}
-
-protocol InspectionDataService {
     func fetchRandomInspection(completion: @escaping (Result<Inspection, Error>) -> Void)
     func fetchInspection(by id: Int, completion: @escaping (Result<Inspection, Error>) -> Void)
 }
-class InspectionNetworkService: InspectionDataService {
+
+
+class InspectionNetworkService: InspectionService {
+    let baseURL = "http://localhost:5001/api/"
     func fetchRandomInspection(completion: @escaping (Result<Inspection, Error>) -> Void) {
         let url = URL(string: "http://localhost:5001/api/random_inspection")!
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -66,6 +66,42 @@ class InspectionNetworkService: InspectionDataService {
         }.resume()
     }
 }
+extension InspectionNetworkService {
+    
+    func fetchInspections(completion: @escaping (Result<[Inspection], Error>) -> Void) {
+        // Implement fetch inspections logic
+    }
+    
+    func submitInspection(inspection: Inspection, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let url = URL(string: baseURL + "inspections/submit")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = try? JSONEncoder().encode(inspection)
+        request.httpBody = body
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
+                return
+            }
+            
+            if httpResponse.statusCode == 200 {
+                completion(.success(true))
+            } else {
+                completion(.failure(NSError(domain: "", code: httpResponse.statusCode, userInfo: nil)))
+            }
+        }
+        task.resume()
+    }
+}
+
 
 
 class AuthNetworkService: AuthService {
@@ -134,38 +170,3 @@ class AuthNetworkService: AuthService {
     }
 }
 
-extension InspectionNetworkService: InspectionService {
-    
-    func fetchInspections(completion: @escaping (Result<[Inspection], Error>) -> Void) {
-        // Implement fetch inspections logic
-    }
-    
-    func submitInspection(inspection: Inspection, completion: @escaping (Result<Bool, Error>) -> Void) {
-        let url = URL(string: baseURL + "inspections/submit")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let body = try? JSONEncoder().encode(inspection)
-        request.httpBody = body
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.failure(NSError(domain: "", code: 0, userInfo: nil)))
-                return
-            }
-            
-            if httpResponse.statusCode == 200 {
-                completion(.success(true))
-            } else {
-                completion(.failure(NSError(domain: "", code: httpResponse.statusCode, userInfo: nil)))
-            }
-        }
-        task.resume()
-    }
-}

@@ -18,9 +18,9 @@ struct InspectionListView: View {
                         SectionHeaderView(title: "DRUGS")
                         
                         QuestionView(question: "Is the drugs trolley locked?", options: ["Yes", "No", "N/A"])
-                        QuestionView(question: "How often is the floor cleaned?", options: ["Everyday", "Every two days", "Every week"])
+                        QuestionView(question: "How often is the floor cleaned?", options: [Constants.Questions.Options.everyday, Constants.Questions.Options.everyTwoDays, Constants.Questions.Options.everyWeek])
                         
-                        SectionHeaderView(title: "OVERALL IMPRESSIONS")
+                        SectionHeaderView(title: Constants.Questions.overallImpressionsSection)
                         
                         QuestionView(question: "How many staff members are present in the ward?", options: ["1-2", "3-6", "6+", "N/A"])
                     }
@@ -38,9 +38,16 @@ struct InspectionListView: View {
     InspectionListView()
 }
 
-struct Inspection: Identifiable, Codable {
+class Inspection: Identifiable, Codable, ObservableObject {
     let id: Int
     let area: Area
     let inspectionType: InspectionType
     let survey: Survey
+    
+    init(id: Int, area: Area, inspectionType: InspectionType, survey: Survey) {
+           self.id = id
+           self.area = area
+           self.inspectionType = inspectionType
+           self.survey = survey
+       }
 }

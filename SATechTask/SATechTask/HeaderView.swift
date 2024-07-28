@@ -3,7 +3,7 @@
 //  SATechTask
 //
 //  Created by Swapnil on 28/07/24.
-//
+//Inspection Details
 
 import SwiftUI
 
