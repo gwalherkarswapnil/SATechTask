@@ -12,6 +12,7 @@ struct AppContentView: View {
             NavigationView {
                 LoginView()
                 .navigationBarHidden(true)
+                .navigationBarBackButtonHidden()
             }
         }
 }

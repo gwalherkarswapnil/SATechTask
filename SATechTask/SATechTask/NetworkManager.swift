@@ -20,7 +20,7 @@ protocol InspectionService {
 }
 
 
-class InspectionNetworkService: InspectionService {
+class InspectionNetworkService: InspectionService, ObservableObject {
     let baseURL = "http://localhost:5001/api/"
     func fetchRandomInspection(completion: @escaping (Result<Inspection, Error>) -> Void) {
         let url = URL(string: "http://localhost:5001/api/random_inspection")!

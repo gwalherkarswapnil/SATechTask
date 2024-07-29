@@ -10,6 +10,8 @@ import SwiftUI
 import SwiftUI
 import SwiftUI
 
+import SwiftUI
+
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel(authService: AuthNetworkService())
     @State private var isLoginMode = true
@@ -31,27 +33,20 @@ struct LoginView: View {
                         .onAppear {
                             animateLogo = true
                         }
-                        .onHover { succes in
-                            
-                        }
-                    
 
                     Text(isLoginMode ? Constants.Login.loginButton : Constants.Login.signUpButton)
                         .font(.largeTitle)
                         .padding()
 
-                    TextField(Constants.Login.emailPlaceholder, text: $viewModel.email)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(5)
-                        .animation(.bouncy)
-
-                    SecureField(Constants.Login.passwordPlaceholder, text: $viewModel.password)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(5)
-                        .animation(.bouncy)
+                    if isLoginMode {
+                        LoginFields(viewModel: viewModel)
+                            .transition(.slide)
+                            .animation(.easeInOut)
+                    } else {
+                        SignUpFields(viewModel: viewModel)
+                            .transition(.slide)
+                            .animation(.easeInOut)
+                    }
 
                     Button(action: {
                         if isLoginMode {
@@ -81,11 +76,12 @@ struct LoginView: View {
                 }
                 .padding()
                 .navigationBarHidden(true)
+                .navigationBarBackButtonHidden()
 
                 Spacer()
 
                 Button(action: {
-                    withAnimation {
+                    withAnimation(.easeInOut) {
                         isLoginMode.toggle()
                     }
                 }) {
@@ -103,3 +99,46 @@ struct LoginView: View {
         }
     }
 }
+
+struct LoginFields: View {
+    @ObservedObject var viewModel: LoginViewModel
+
+    var body: some View {
+        VStack(spacing: 16) {
+            TextField(Constants.Login.emailPlaceholder, text: $viewModel.email)
+                .autocapitalization(.none)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(5)
+                .animation(.bouncy)
+
+            SecureField(Constants.Login.passwordPlaceholder, text: $viewModel.password)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(5)
+                .animation(.bouncy)
+        }
+    }
+}
+
+struct SignUpFields: View {
+    @ObservedObject var viewModel: LoginViewModel
+
+    var body: some View {
+        VStack(spacing: 16) {
+            TextField(Constants.Login.emailPlaceholder, text: $viewModel.email)
+                .autocapitalization(.none)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(5)
+                .animation(.bouncy)
+
+            SecureField(Constants.Login.passwordPlaceholder, text: $viewModel.password)
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(5)
+                .animation(.bouncy)
+        }
+    }
+}
+
