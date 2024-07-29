@@ -33,16 +33,15 @@ struct SubmitButtonView: View {
 
 
 
-struct SectionHeaderView: View {
+struct SectionHeaderView: View, Identifiable {
+    let id = UUID()
     let title: String
     
     var body: some View {
         Text(title)
-            .font(.headline)
-            .foregroundColor(.blue)
-            .padding(.top, 20)
+            .font(.title2)
+            .padding(.vertical, 5)
     }
 }
-
 
 

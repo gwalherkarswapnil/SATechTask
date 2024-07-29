@@ -29,6 +29,7 @@ struct QuestionView: View {
                             .background(selectedOption == option ? Color.blue : Color.gray.opacity(0.2))
                             .foregroundColor(selectedOption == option ? .white : .black)
                             .cornerRadius(8)
+                            .font(.subheadline)
                     }
                 }
             }
